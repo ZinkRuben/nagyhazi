@@ -1,0 +1,8 @@
+//
+// Created by Zear on 11/10/2022.
+//
+
+#ifndef NAGYHAZI_VALUE_CHECKS_H
+#define NAGYHAZI_VALUE_CHECKS_H
+
+#endif //NAGYHAZI_VALUE_CHECKS_H
