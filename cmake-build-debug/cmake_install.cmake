@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Zear/CLionProjects/nagyhazi
+# Install script for directory: C:/Users/Zear/CLionProjects/nagyhazi_plus
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Zear/CLionProjects/nagyhazi/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Zear/CLionProjects/nagyhazi_plus/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
