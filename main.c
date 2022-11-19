@@ -45,10 +45,11 @@ matrix gauss_elimination(matrix m) {
             //if it's a zero, try to swap this line, with a line lower than it
         else if (fabs(current) < 0.00001) {
             bool swap_success = false;
-            for (int k = i; k < result.height; k++) {
+            for (int k = i; k < result.height && !swap_success; k++) {
                 if (fabs((result.rows[k][j])) > 0.00001) {
                     swap_lines(result, i, k);
                     swap_success = true;
+                    i--, j--; //because we need to run the algorithm on this line one more time, before we can go to the next line
                 }
             }
             //ha nem volt nulla alatta és nem tudtuk felcserélni akkor mozgassuk a pointert 1-el balra
@@ -56,10 +57,7 @@ matrix gauss_elimination(matrix m) {
                 if (j < m.width - 1) {
                     i--;
                     continue;
-
                 }
-
-
             }
         }
             //if it's not one, and it's not zero multiply current row with 1/current
@@ -78,8 +76,12 @@ matrix gauss_elimination(matrix m) {
             result.rows[k] = new_line;
             free(temp);
         }
+        printf("\n******************\n");
+        mprint(result);
+    }
 
-    }//teszteljünk hogy van e csak 0
+
+    //teszteljünk hogy van e csak 0
     for (int i = result.height-1; i >= 0 ; i--) {
         //ha van csupa 0 sor, hagyjuk el (módosítsuk a magasságát is)
         // csupa nulla sor csak a végén lehet
@@ -92,6 +94,8 @@ matrix gauss_elimination(matrix m) {
             break;
         }
     }
+
+
     //teszteljük hogy van e tilos sor
     for (int i = result.height; i > 0 ; i--) {
         if(check_invalid_line(result.rows[i],result.width)) {
@@ -137,15 +141,19 @@ matrix gauss_elimination(matrix m) {
 
 int main() {
     matrix matrix1 = read_matrix_f("..\\matrix1.txt");
-    double* temp = skalar_multip_line(matrix1.rows[0], matrix1.width, 3);
-    printf("%f\n", temp[3]);
-    free(temp);
+    matrix matrix2 = read_matrix_f("..\\matrix2.txt");
+    mprint(matrix2);
     mprint(matrix1);
-    matrix eliminated = gauss_elimination(matrix1);
+    //matrix eliminated = gauss_elimination(matrix1);
+    matrix eliminated2 = gauss_elimination(matrix2);
     printf("\n");
-    mprint(eliminated);
-    free_matrix(eliminated);
+    //mprint(eliminated);
+    printf("\n\n");
+    mprint(eliminated2);
+    //free_matrix(eliminated);
     free_matrix(matrix1);
+    free_matrix(matrix2);
+    free_matrix(eliminated2);
 
 
 }
