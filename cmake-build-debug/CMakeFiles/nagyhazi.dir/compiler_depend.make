@@ -77,10 +77,9 @@ CMakeFiles/nagyhazi.dir/main.c.obj: ../main.c \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
   ../matrix_io.h \
   ../struct.h \
-  ../line_operations.h \
   ../matrix_operations.h \
   ../matrix_lib.h \
-  ../value_check.h
+  ../matrix_list.h
 
 CMakeFiles/nagyhazi.dir/matrix_io.c.obj: ../matrix_io.c \
   ../matrix_io.h \
@@ -118,31 +117,35 @@ CMakeFiles/nagyhazi.dir/matrix_io.c.obj: ../matrix_io.c \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+  ../matrix_operations.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
+  ../matrix_list.h \
+  ../matrix_lib.h
 
 CMakeFiles/nagyhazi.dir/matrix_lib.c.obj: ../matrix_lib.c \
   ../matrix_lib.h \
   ../struct.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
+  ../debugmalloc.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
-  ../debugmalloc.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -157,11 +160,52 @@ CMakeFiles/nagyhazi.dir/matrix_lib.c.obj: ../matrix_lib.c \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h
+
+CMakeFiles/nagyhazi.dir/matrix_list.c.obj: ../matrix_list.c \
+  ../matrix_list.h \
+  ../struct.h \
+  ../debugmalloc.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+  ../matrix_io.h \
+  ../matrix_lib.h
 
 CMakeFiles/nagyhazi.dir/matrix_operations.c.obj: ../matrix_operations.c \
   ../matrix_operations.h \
   ../struct.h \
   ../line_operations.h \
+  ../matrix_lib.h \
   ../debugmalloc.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
@@ -195,7 +239,9 @@ CMakeFiles/nagyhazi.dir/matrix_operations.c.obj: ../matrix_operations.c \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
+  ../value_check.h
 
 CMakeFiles/nagyhazi.dir/value_check.c.obj: ../value_check.c \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
@@ -256,6 +302,8 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h:
 
+../matrix_list.c:
+
 C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/math.h:
@@ -297,6 +345,8 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include
 C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/stdarg.h:
+
+../matrix_list.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.1/bin/mingw/x86_64-w64-mingw32/include/process.h:
 

@@ -3,6 +3,7 @@ CMakeFiles/nagyhazi.dir/matrix_operations.c.obj: \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_operations.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\struct.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\line_operations.h \
+ C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_lib.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\debugmalloc.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
@@ -36,4 +37,6 @@ CMakeFiles/nagyhazi.dir/matrix_operations.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
- C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
+ C:\Users\Zear\CLionProjects\nagyhazi_plus\value_check.h

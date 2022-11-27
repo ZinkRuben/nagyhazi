@@ -35,4 +35,8 @@ CMakeFiles/nagyhazi.dir/matrix_io.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
- C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+ C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_operations.h \
+ C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
+ C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_list.h \
+ C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_lib.h

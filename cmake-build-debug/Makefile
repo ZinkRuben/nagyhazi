@@ -224,6 +224,30 @@ matrix_lib.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\nagyhazi.dir\build.make CMakeFiles/nagyhazi.dir/matrix_lib.c.s
 .PHONY : matrix_lib.c.s
 
+matrix_list.obj: matrix_list.c.obj
+.PHONY : matrix_list.obj
+
+# target to build an object file
+matrix_list.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\nagyhazi.dir\build.make CMakeFiles/nagyhazi.dir/matrix_list.c.obj
+.PHONY : matrix_list.c.obj
+
+matrix_list.i: matrix_list.c.i
+.PHONY : matrix_list.i
+
+# target to preprocess a source file
+matrix_list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\nagyhazi.dir\build.make CMakeFiles/nagyhazi.dir/matrix_list.c.i
+.PHONY : matrix_list.c.i
+
+matrix_list.s: matrix_list.c.s
+.PHONY : matrix_list.s
+
+# target to generate assembly for a file
+matrix_list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\nagyhazi.dir\build.make CMakeFiles/nagyhazi.dir/matrix_list.c.s
+.PHONY : matrix_list.c.s
+
 matrix_operations.obj: matrix_operations.c.obj
 .PHONY : matrix_operations.obj
 
@@ -317,6 +341,9 @@ help:
 	@echo ... matrix_lib.obj
 	@echo ... matrix_lib.i
 	@echo ... matrix_lib.s
+	@echo ... matrix_list.obj
+	@echo ... matrix_list.i
+	@echo ... matrix_list.s
 	@echo ... matrix_operations.obj
 	@echo ... matrix_operations.i
 	@echo ... matrix_operations.s

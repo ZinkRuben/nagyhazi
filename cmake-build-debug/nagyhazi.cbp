@@ -97,6 +97,12 @@
 		<Unit filename="C:/Users/Zear/CLionProjects/nagyhazi_plus/matrix_lib.h">
 			<Option target="nagyhazi"/>
 		</Unit>
+		<Unit filename="C:/Users/Zear/CLionProjects/nagyhazi_plus/matrix_list.c">
+			<Option target="nagyhazi"/>
+		</Unit>
+		<Unit filename="C:/Users/Zear/CLionProjects/nagyhazi_plus/matrix_list.h">
+			<Option target="nagyhazi"/>
+		</Unit>
 		<Unit filename="C:/Users/Zear/CLionProjects/nagyhazi_plus/matrix_operations.c">
 			<Option target="nagyhazi"/>
 		</Unit>

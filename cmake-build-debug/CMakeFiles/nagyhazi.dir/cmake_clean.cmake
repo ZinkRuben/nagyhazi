@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nagyhazi.dir/matrix_io.c.obj.d"
   "CMakeFiles/nagyhazi.dir/matrix_lib.c.obj"
   "CMakeFiles/nagyhazi.dir/matrix_lib.c.obj.d"
+  "CMakeFiles/nagyhazi.dir/matrix_list.c.obj"
+  "CMakeFiles/nagyhazi.dir/matrix_list.c.obj.d"
   "CMakeFiles/nagyhazi.dir/matrix_operations.c.obj"
   "CMakeFiles/nagyhazi.dir/matrix_operations.c.obj.d"
   "CMakeFiles/nagyhazi.dir/value_check.c.obj"

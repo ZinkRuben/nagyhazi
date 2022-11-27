@@ -2,158 +2,251 @@
 #include <math.h>
 #include "debugmalloc.h"
 #include "matrix_io.h"
-#include "line_operations.h"
 #include "matrix_operations.h"
 #include "matrix_lib.h"
-#include "value_check.h"
-
-/*
-double row1[] = {1, 2, 3, 4};
-double row2[] = {1, 2, 3, 4};
-double row3[] = {1, 2, 3, 4};
-double row4[] = {1, 2, 3, 4};
-
-double* rows[] = {row1, row2, row3, row4};
-matrix m = {4, 3, rows};
-*/
+#include "matrix_list.h"
+#include <string.h>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-matrix gauss_elimination(matrix m) {
-    matrix result = m_cpy(m);
-    //start looping through the matrix by moving on the diagonal if possible
-    for (int i = 0, j = 0; i < result.height && j < (result.width - 1); i++, j++) {
-        double current = result.rows[i][j];
-        //if it's a one, go to next step
-        if (fabs(current - 1) < 0.00001) {
-
-        }
-            //if it's a zero, try to swap this line, with a line lower than it
-        else if (fabs(current) < 0.00001) {
-            bool swap_success = false;
-            for (int k = i; k < result.height && !swap_success; k++) {
-                if (fabs((result.rows[k][j])) > 0.00001) {
-                    swap_lines(result, i, k);
-                    swap_success = true;
-                    i--, j--; //because we need to run the algorithm on this line one more time, before we can go to the next line
-                }
-            }
-            //ha nem volt nulla alatta és nem tudtuk felcserélni akkor mozgassuk a pointert 1-el balra
-            if (!swap_success) {
-                if (j < m.width - 1) {
-                    i--;
-                    continue;
-                }
-            }
-        }
-            //if it's not one, and it's not zero multiply current row with 1/current
-        else {
-            double *temp = skalar_multip_line(result.rows[i], result.width, 1 / result.rows[i][j]);
-            free(result.rows[i]);
-            result.rows[i] = temp;
-        }
-        //we made a leading one in this row, so we can move to the next step
-        //we have to subtract this line (multiplied by a sutiable scalar) from the lines below to make them 0
-        for (int k = i + 1; k < result.height; k++) {
-            //multiplies the last row with a leading 1 by the skalar k.row current column
-            double *temp = skalar_multip_line(result.rows[i], result.width, -1 * result.rows[k][j]);
-            double *new_line = add_lines(temp, result.rows[k], result.width);
-            free(result.rows[k]);
-            result.rows[k] = new_line;
-            free(temp);
-        }
-        printf("\n******************\n");
-        mprint(result);
+void remove_new_line(char *string) {
+    int i = 0;
+    while (string[i] != '\n' && string[i] != '\0') {
+        i++;
     }
-
-
-    //teszteljünk hogy van e csak 0
-    for (int i = result.height-1; i >= 0 ; i--) {
-        //ha van csupa 0 sor, hagyjuk el (módosítsuk a magasságát is)
-        // csupa nulla sor csak a végén lehet
-        if (check_all_zero_line(result.rows[i], result.width)) {
-            result.height -= 1;
-            free(result.rows[i]);
-        }
-        //mivel az összes csupa nulla sor az aljára koncentrálodik, ha van 1 nem csupa nulla sor, utána már nem lehet több
-        else{
-            break;
-        }
+    if (string[i] == '\n') {
+        string[i] = '\0';
     }
-
-
-    //teszteljük hogy van e tilos sor
-    for (int i = result.height; i > 0 ; i--) {
-        if(check_invalid_line(result.rows[i],result.width)) {
-            printf("Nincs megoldása az egyenletrendszernek");
-            return result;
-            //itt az algoritmus visszatér visszaadjuk olyan formában ahol látható hogy nincs megoldása az egyenletrendszernek
-        }
-    }
-
-            //második fázis: a vezéregyesek felett álló számokat is nullázzuk ki
-    int i = result.height-1;
-    int j = result.width-2;
-    while (j>=0 && i >=0) {
-        printf("\n**********************\n");
-        mprint(result);
-        if(fabs(result.rows[i][j]-1)<0.00001) {
-            for(int k = i-1; k>=0; k--){
-                double* temp = result.rows[k];
-                double* kivonando = skalar_multip_line(result.rows[i], result.width, -1*result.rows[k][j]);
-                result.rows[k] = add_lines(temp, kivonando, result.width);
-                free(temp);
-                free(kivonando);
-            }
-            i--; j--;
-        }
-        else{
-            j--;
-        }
-    }
-
-
-    return result;
-
-
 }
-//if it's a zero, try to swap this line, with one line lower than it
-//if there are only zero's below this, go to the right
-//if it's neither a one nor a zero, devide this row with current number to get a one
 
+void main_menu(m_list *strazsa) {
+    char menu_szoveg[] = "ird be a parancs melletti szamot a parancs vegrehajtasahoz\n"
+                         " 0:ezen lista ujbol kiirasa\n"
+                         " 1:matrix beolvasasa \n"
+                         " 2:matrix fajlba irasa \n"
+                         " 3:tarolt matrixok neveinek listazasa \n"
+                         " 4:tarolt matrixok kiirasa\n"
+                         " 5:muveletvegzes matrixokkal\n"
+                         " 6:matrix masolasa\n"
+                         " 7:matrix torlese\n"
+                         " 9:kilepes\n";
+    printf("Udv a matrix konyvtar programban!");
+    int command;
+    char name1[31];
+    char name2[31];
+    char buffer[201];
+    printf("%s", menu_szoveg);
+    while (1) {
 
+        scanf("%d", &command);
+        while (getchar() != '\n');
+        switch (command) {
+            case 0:
+                printf("%s", menu_szoveg);
+                break;
+            case 1:
+                printf("ird be a beolvasando fajl helyet es nevet (max 200 karakter)");
+                scanf("%s", buffer);
+                while (getchar() != '\n') {}
+                matrix new_matrix = read_matrix_f(buffer);
+                if (new_matrix.height == 0) {
+                    printf("hiba tortent, a megadott matrix nem beolvashato\n");
+                    free_matrix(new_matrix);
+                    break;
+                }
+                printf("ird be a matrix nevet (ahogy a programon bellul hivatkozni szeretnel ra (max 200 karakter)");
+                fgets(name1, 31, stdin);
+                remove_new_line(name1);
+                mprint(new_matrix);
+                m_list_append(&strazsa, new_matrix, name1);
+                break;
+            case 2:
+                printf("add meg a fajla irando matrix nevet");
+                matrix m_to_write_to_file = find_user_named_matrix(strazsa);
+                printf("add meg a fajl nevet kiterjeszteset es utvonalat\n"
+                       " (ha nem adsz meg utvonalat a programmal megegyezo mappaba tortenik a mentes)");
+                scanf("%s", buffer);
+                while (getchar() != '\n') {}
+                write_matrix_f(buffer, m_to_write_to_file);
+                break;
+            case 3:
+                list_all_matrices(strazsa);
+                break;
+            case 4:
+                print_all_matrices(strazsa);
+                break;
+            case 5:
+                printf("Milyen muveletet szeretnel vegezni?\n"
+                       "0: vissza\n"
+                       "1: matrixok osszeadasa\n"
+                       "2: matrix szorzasa egy skalarral, !az adott matrixot valtoztja meg!\n"
+                       "3: matrixok szorzasa\n"
+                       "4: gauss-eliminacio\n"
+                       "5: matrix rang szamolas\n"
+                       "");
+                scanf("%d", &command);
+                switch (command) {
+                    case 0:
+                        break;
+                        //matrixok osszeadasa
+                    case 1:
+                        printf("a matrixok megadasanal figyelj a sorrendre, a muvelet csak akkor elvegezheto\n"
+                               "ha az elso matrix szelessege megegyezik a masodik matrix magassagaval");
+                        printf("add meg az elso matrix nevet (max 30 karakter)");
+                        matrix m1 = find_user_named_matrix(strazsa);
+                        printf("add meg a masodik matrix nevet (max 30 karakter)");
+                        matrix m2 = find_user_named_matrix(strazsa);
+                        matrix result = m_addition(m1, m2);
+                        if (result.height == 0) {
+                            free_matrix(result);
+                            // az 2 megadott matrix dimenzio nem megfeleloek igy az osszeadas nem hajthato vegre
+                            printf("muvelet megszakitva");
+                            break;
+                        }
+                        printf("add meg az uj osszeg matrix nevet, ahogy a programon bellul hivatkozni szeretnel ra");
+                        scanf("%s", name1);
+                        while (getchar() != '\n') {}
+                        m_list_append(&strazsa, result, name1);
+                        break;
 
+                        //matrix szorzasa skalarral
+                    case 2:
+                        printf("add meg a szorzando matrix nevet (max 30 karakter)");
+                        matrix m_skalar_m = find_user_named_matrix(strazsa);
+                        printf("add meg a skalart amivel meg szeretned szorozni a matrixot");
+                        double skalar;
+                        scanf("%lf", &skalar);
+                        m_scalar_multip(m_skalar_m, skalar);
+                        break;
+
+                        //matrix szorzas
+                    case 3:
+                        printf("add meg az elso matrix nevet (max 30 karakter)");
+                        matrix left_matrix = find_user_named_matrix(strazsa);
+                        printf("add meg a masodik matrix nevet (max 30 karakter)");
+                        matrix right_matrix = find_user_named_matrix(strazsa);
+                        matrix multip_result = m_multip(left_matrix, right_matrix);
+                        if (multip_result.height == 0) {
+                            free_matrix(multip_result);
+                            // az 2 megadott matrix dimenzio nem megfeleloek igy az osszeadas nem hajthato vegre
+                            printf("muvelet megszakitva");
+                            break;
+                        }
+                        printf("add meg az uj szorzat matrix nevet, ahogy a programon bellul hivatkozni szeretnel ra");
+                        scanf("%s", name1);
+                        while (getchar() != '\n') {}
+                        m_list_append(&strazsa, multip_result, name1);
+                        break;
+                        //gauss eliminacio
+                    case 4:
+                        printf("add meg a Gauss-eliminalni valo matrix nevet");
+                        matrix m_to_gauss = find_user_named_matrix(strazsa);
+                        matrix gauss_result = gauss_elimination(m_to_gauss);
+                        printf("add meg az uj gauss eliminalt matrix nevet, ahogy a programon bellul hivatkozni szeretnel ra");
+                        scanf("%s", name1);
+                        while (getchar() != '\n') {}
+                        m_list_append(&strazsa, gauss_result, name1);
+                        break;
+                    case 5:
+                        printf("add meg a matrixot aminek kivancsi vagy a rangjara");
+                        printf("A matrix rangja: %d\n", matrix_rank(find_user_named_matrix(strazsa)));
+                        break;
+                    default:
+                        break;
+                }
+                break;
+                //matrix duplikalsa
+            case 6:
+                printf("ird be a matrix nevet, amelyikbol szeretnel megegy peldanyt");
+                matrix copied = m_cpy(find_user_named_matrix(strazsa));
+                printf("add meg az uj masolat matrix nevet, ahogy a programon bellul hivatkozni szeretnel ra");
+                scanf("%s", name1);
+                while (getchar() != '\n') {}
+                m_list_append(&strazsa, copied, name1);
+                break;
+                //matrix torlese a memoriabol
+            case 7:
+                printf("ird be a matrix nevet amit szeretnel torolni a programbol\n");
+
+                fgets(name1, 31, stdin);
+                remove_new_line(name1);
+                remove_list_item(strazsa, name1);
+                printf("sikeresen torolve");
+                break;
+                //kilepes
+            case 9:
+                free_list(strazsa);
+                printf("Remelem tetszett a program! Szia!");
+                return;
+                //hibas parancskod eseten default
+            default:
+                printf("nem ismert parancskod, kerlek progalkozz ujra");
+                break;
+        }
+    }
+}
 
 
 int main() {
-    matrix matrix1 = read_matrix_f("..\\matrix1.txt");
-    matrix matrix2 = read_matrix_f("..\\matrix2.txt");
-    mprint(matrix2);
-    mprint(matrix1);
-    //matrix eliminated = gauss_elimination(matrix1);
-    matrix eliminated2 = gauss_elimination(matrix2);
-    printf("\n");
-    //mprint(eliminated);
-    printf("\n\n");
-    mprint(eliminated2);
-    //free_matrix(eliminated);
-    free_matrix(matrix1);
-    free_matrix(matrix2);
-    free_matrix(eliminated2);
 
 
+    m_list *strazsa = (m_list *) (malloc(sizeof(m_list)));
+    strcpy(strazsa->name, "strazsa");
+    strazsa->next = NULL;
+    strazsa->data = m_create(0, 0);
+    main_menu(strazsa);
+
+
+//    matrix matrix1 = read_matrix_f("..\\matrix2.txt");
+//    matrix matrix2 = read_matrix_f("..\\matrix2.txt");
+//    m_list_append(&strazsa, matrix1, "m1");
+//    m_list_append(&strazsa, matrix2, "m2");
+//    list_all_matrices(strazsa);
+//    remove_list_item(strazsa, "m2");
+//    printf("ADASDSADASDSADSDA");
+//    list_all_matrices(strazsa);
+//    free_list(strazsa);
+
+//    char* masolat = "..\\matrix1.txt";
+//    matrix matrix1 = read_matrix_f(masolat);
+//    matrix matrix2 = read_matrix_f("..\\matrix2.txt");
+//    mprint(matrix2);
+//    mprint(matrix1);
+//    matrix osszeg = m_addition(matrix1,matrix1);
+//    printf("%d", osszeg.width);
+//    printf("%d", osszeg.height);
+//    mprint(osszeg);
+//    //matrix eliminated = gauss_elimination(matrix1);
+//    //matrix eliminated2 = gauss_elimination(matrix2);
+//    //printf("\n");
+//    //mprint(eliminated);
+//    //printf("\n\n");
+//    //mprint(eliminated2);
+//    //free_matrix(eliminated);
+//
+//
+//
+//
+//    matrix multiplied = m_multip(matrix1, matrix2);
+//    printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n");
+//    mprint(multiplied);
+//    write_matrix_f("..\\m1m2multiplied.txt", multiplied);
+//
+//    m_list *first = (m_list*)malloc(sizeof(m_list));
+//    first->data = multiplied;
+//    strcpy(first->name,"test_m");
+//    first->next = NULL;
+//
+//    m_list_append(&first, matrix1, "matrix1");
+//    m_list_append(&first, matrix2, "matrix2");
+//    list_all_matrices(first);
+//
+//    print_all_matrices(first);
+//
+//    remove_list_item(first, "matrix2");
+//    remove_list_item(first, "matrix1");
+//    remove_list_item(first, "test_m");
+//
+//    //free_matrix(multiplied);
+//    //free_matrix(matrix1);
+//    //free_matrix(eliminated2);
 }

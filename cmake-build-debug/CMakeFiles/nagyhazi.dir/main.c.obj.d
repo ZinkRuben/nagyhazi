@@ -37,7 +37,6 @@ CMakeFiles/nagyhazi.dir/main.c.obj: \
  C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_io.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\struct.h \
- C:\Users\Zear\CLionProjects\nagyhazi_plus\line_operations.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_operations.h \
  C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_lib.h \
- C:\Users\Zear\CLionProjects\nagyhazi_plus\value_check.h
+ C:\Users\Zear\CLionProjects\nagyhazi_plus\matrix_list.h

@@ -80,12 +80,12 @@ clean: CMakeFiles/nagyhazi.dir/clean
 CMakeFiles/nagyhazi.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\nagyhazi.dir\build.make CMakeFiles/nagyhazi.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\nagyhazi.dir\build.make CMakeFiles/nagyhazi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Zear\CLionProjects\nagyhazi_plus\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target nagyhazi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Zear\CLionProjects\nagyhazi_plus\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target nagyhazi"
 .PHONY : CMakeFiles/nagyhazi.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/nagyhazi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Zear\CLionProjects\nagyhazi_plus\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Zear\CLionProjects\nagyhazi_plus\cmake-build-debug\CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/nagyhazi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Zear\CLionProjects\nagyhazi_plus\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/nagyhazi.dir/rule
